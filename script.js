@@ -190,13 +190,24 @@ document.querySelectorAll('.project-carousel-wrapper').forEach((carousel) => {
 
 // Certificate preview modal
 const certificateModal = document.getElementById('certificate-modal');
-const certificateOpenBtn = document.getElementById('certificate-open-btn');
 const certificateCloseBtn = document.getElementById('certificate-close-btn');
+const certificateModalImage = document.getElementById('certificate-modal-image');
+const certificateOpenButtons = document.querySelectorAll('[data-certificate-image]');
 
-if (certificateModal && certificateOpenBtn && certificateCloseBtn) {
-    certificateOpenBtn.addEventListener('click', () => {
-        certificateModal.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
+if (certificateModal && certificateCloseBtn && certificateModalImage && certificateOpenButtons.length > 0) {
+    certificateOpenButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const imageSrc = button.getAttribute('data-certificate-image');
+            const imageAlt = button.getAttribute('data-certificate-alt') || 'Certificate preview';
+
+            if (imageSrc) {
+                certificateModalImage.src = imageSrc;
+            }
+            certificateModalImage.alt = imageAlt;
+
+            certificateModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        });
     });
 
     const closeCertificateModal = () => {
