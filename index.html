@@ -270,8 +270,8 @@
                             <p class="text-gray-400 text-sm">Languages</p>
                         </div>
                         <div class="glass rounded-xl p-4">
-                            <h4 class="text-3xl font-bold gradient-text">1</h4>
-                            <p class="text-gray-400 text-sm">Certification</p>
+                            <h4 class="text-3xl font-bold gradient-text">4</h4>
+                            <p class="text-gray-400 text-sm">Certifications</p>
                         </div>
                         <div class="glass rounded-xl p-4">
                             <h4 class="text-3xl font-bold gradient-text">2024</h4>
@@ -400,7 +400,7 @@
                     <div class="w-14 h-14 bg-pink-600/20 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="palette" class="w-7 h-7 text-pink-400"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Certification</h4>
+                    <h4 class="text-xl font-bold mb-4">Certifications</h4>
                     <div class="space-y-3">
                         <div class="flex justify-between text-sm">
                             <div class="flex items-center gap-2">
@@ -429,18 +429,30 @@
                             <div class="skill-bar bg-gradient-to-r from-pink-600 to-purple-600 h-2 rounded-full" style="width: 0%" data-width="100%"></div>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span>Core Areas</span>
-                            <span class="text-pink-400">Java, C++, Python</span>
+                            <div class="flex items-center gap-2">
+                                <span>Introduction to Git</span>
+                                <button type="button" class="cert-preview-btn" aria-label="View certificate" data-certificate-image="assets/certificates/Introduction%20to%20Git.pdf" data-certificate-alt="Introduction to Git Certificate">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                    <span class="cert-preview-tooltip">View certificate</span>
+                                </button>
+                            </div>
+                            <span class="text-pink-400">Completed</span>
                         </div>
                         <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="skill-bar bg-gradient-to-r from-pink-600 to-purple-600 h-2 rounded-full" style="width: 0%" data-width="82%"></div>
+                            <div class="skill-bar bg-gradient-to-r from-pink-600 to-purple-600 h-2 rounded-full" style="width: 0%" data-width="100%"></div>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span>Career Interests</span>
-                            <span class="text-pink-400">Software, AI, Cloud</span>
+                            <div class="flex items-center gap-2">
+                                <span>McKinsey Forward Program</span>
+                                <button type="button" class="cert-preview-btn" aria-label="View certificate" data-certificate-image="assets/certificates/McKinsy%20Forward%20Program.pdf" data-certificate-alt="McKinsey Forward Program Certificate">
+                                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                                    <span class="cert-preview-tooltip">View certificate</span>
+                                </button>
+                            </div>
+                            <span class="text-pink-400">Completed</span>
                         </div>
                         <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="skill-bar bg-gradient-to-r from-pink-600 to-purple-600 h-2 rounded-full" style="width: 0%" data-width="90%"></div>
+                            <div class="skill-bar bg-gradient-to-r from-pink-600 to-purple-600 h-2 rounded-full" style="width: 0%" data-width="100%"></div>
                         </div>
                     </div>
                 </div>
@@ -983,6 +995,7 @@
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
                 <img id="certificate-modal-image" src="assets/certificates/foundation-certificate.png" alt="Foundation Certificate in Information Technology" class="w-full max-h-[80vh] object-contain rounded-lg border border-gray-700">
+                <iframe id="certificate-modal-pdf" title="Certificate preview" class="hidden w-full h-[80vh] rounded-lg border border-gray-700 bg-white"></iframe>
             </div>
         </div>
     </div>

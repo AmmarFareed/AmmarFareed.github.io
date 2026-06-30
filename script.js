@@ -192,18 +192,32 @@ document.querySelectorAll('.project-carousel-wrapper').forEach((carousel) => {
 const certificateModal = document.getElementById('certificate-modal');
 const certificateCloseBtn = document.getElementById('certificate-close-btn');
 const certificateModalImage = document.getElementById('certificate-modal-image');
+const certificateModalPdf = document.getElementById('certificate-modal-pdf');
 const certificateOpenButtons = document.querySelectorAll('[data-certificate-image]');
 
 if (certificateModal && certificateCloseBtn && certificateModalImage && certificateOpenButtons.length > 0) {
     certificateOpenButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            const imageSrc = button.getAttribute('data-certificate-image');
-            const imageAlt = button.getAttribute('data-certificate-alt') || 'Certificate preview';
+            const certificateSrc = button.getAttribute('data-certificate-image');
+            const certificateAlt = button.getAttribute('data-certificate-alt') || 'Certificate preview';
+            const isPdf = certificateSrc?.toLowerCase().endsWith('.pdf');
 
-            if (imageSrc) {
-                certificateModalImage.src = imageSrc;
+            if (isPdf && certificateModalPdf) {
+                certificateModalImage.classList.add('hidden');
+                certificateModalPdf.classList.remove('hidden');
+                certificateModalPdf.src = certificateSrc;
+                certificateModalPdf.title = certificateAlt;
+            } else {
+                if (certificateModalPdf) {
+                    certificateModalPdf.classList.add('hidden');
+                    certificateModalPdf.src = '';
+                }
+                certificateModalImage.classList.remove('hidden');
+                if (certificateSrc) {
+                    certificateModalImage.src = certificateSrc;
+                }
+                certificateModalImage.alt = certificateAlt;
             }
-            certificateModalImage.alt = imageAlt;
 
             certificateModal.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
@@ -213,6 +227,9 @@ if (certificateModal && certificateCloseBtn && certificateModalImage && certific
     const closeCertificateModal = () => {
         certificateModal.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
+        if (certificateModalPdf) {
+            certificateModalPdf.src = '';
+        }
     };
 
     certificateCloseBtn.addEventListener('click', closeCertificateModal);
