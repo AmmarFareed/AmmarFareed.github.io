@@ -241,12 +241,6 @@
                             <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 10.15H5.67V18h2.67v-7.85Zm.17-2.43c0-.86-.7-1.56-1.56-1.56s-1.56.7-1.56 1.56.7 1.56 1.56 1.56 1.56-.7 1.56-1.56ZM18 13.5c0-2.34-1.25-3.43-2.92-3.43-1.34 0-1.94.74-2.27 1.26v-1.08h-2.66V18h2.66v-4.13c0-.22.02-.44.08-.6.18-.44.6-.89 1.3-.89.92 0 1.29.7 1.29 1.72V18H18v-4.5Z"></path>
                         </svg>
                     </a>
-                    <a href="#" aria-label="CV to be added" title="CV - To be added" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-purple-600/20 transition-all hover:scale-110">
-                        <i data-lucide="file-text" class="w-5 h-5"></i>
-                    </a>
-                    <a href="#" aria-label="Resume to be added" title="Resume - To be added" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-purple-600/20 transition-all hover:scale-110">
-                        <i data-lucide="file-badge" class="w-5 h-5"></i>
-                    </a>
                 </div>
             </div>
         </div>
@@ -603,6 +597,83 @@
                             <li>- Built reusable Navbar and Footer web components</li>
                             <li>- Ensured responsive layout and optimized client-server communication</li>
                             <li>- Delivered a fully functional identity system and strengthened full-stack API experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-8 md:p-10 card-hover fade-in mt-10" style="transition-delay: 0.2s">
+                <h4 class="text-2xl font-bold mb-6">PriceShift⚡ - Dual-Currency Inflation Calculator</h4>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-3 py-1 rounded-full text-xs bg-purple-600/20 text-purple-300">Personal Project</span>
+                    <span class="px-3 py-1 rounded-full text-xs bg-green-600/20 text-green-300">Jun 2026 - Present</span>
+                </div>
+
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    PriceShift is an inflation calculator I built after years of hearing elders say "back in my day this used to cost much less." It puts real numbers behind those conversations, letting anyone see exactly what an amount from any year is worth today, in USD or LKR, and visualising Sri Lanka's 2022 economic crisis along the way.
+                </p>
+
+                <div class="mb-8">
+                    <a href="https://priceshift-vice.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-semibold text-sm hover:shadow-lg hover:shadow-purple-500/30 transition-all">
+                        View Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-lg font-bold mb-4 text-purple-300">Project Screenshots</h4>
+                    <div class="project-carousel-wrapper relative select-none">
+                        <div class="project-carousel-viewport rounded-xl">
+                            <div class="project-carousel-track">
+                                <img src="assets/priceshift/main-view.png" alt="PriceShift USD growth curve screenshot" class="project-shot">
+                                <img src="assets/priceshift/growth-curve-lkr.png" alt="PriceShift LKR growth curve with 2022 crisis annotation screenshot" class="project-shot">
+                                <img src="assets/priceshift/category-compare-usd.png" alt="PriceShift USD category comparison screenshot" class="project-shot">
+                                <img src="assets/priceshift/category-compare-lkr.png" alt="PriceShift LKR category comparison screenshot" class="project-shot">
+                                <img src="assets/priceshift/milestones-usd.png" alt="PriceShift USD milestones timeline screenshot" class="project-shot">
+                                <img src="assets/priceshift/milestones-lkr.png" alt="PriceShift LKR milestones timeline screenshot" class="project-shot">
+                            </div>
+                        </div>
+                        <div class="project-carousel-edge left"></div>
+                        <div class="project-carousel-edge right"></div>
+                        <button type="button" class="project-carousel-arrow prev" aria-label="Previous screenshot">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button type="button" class="project-carousel-arrow next" aria-label="Next screenshot">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="glass rounded-xl p-6">
+                        <h4 class="text-lg font-bold mb-4 text-purple-300">What I Built</h4>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li>- Dual-currency support (USD/LKR) with real historical CPI data spanning 74 years (US) and 64 years (Sri Lanka)</li>
+                            <li>- Interactive growth curve, category comparison, and milestone timeline views using Recharts</li>
+                            <li>- 6 dynamically switching spending categories per currency (Housing, Food, Medical, Energy, Education, etc.)</li>
+                            <li>- Shareable calculation URLs with full state encoded in query parameters</li>
+                            <li>- Automatic 2022 crisis annotation when viewing affected year ranges</li>
+                            <li>- Fully responsive dark-themed UI with custom animations</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass rounded-xl p-6">
+                        <h4 class="text-lg font-bold mb-4 text-blue-300">Tech Stack Used</h4>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li>- Frontend: React, Vite, Recharts</li>
+                            <li>- Deployment: Vercel with continuous deployment from GitHub</li>
+                            <li>- CI/CD: GitHub Actions automated build pipeline</li>
+                            <li>- Analytics: Vercel Analytics for traffic monitoring</li>
+                            <li>- Data Sources: U.S. Bureau of Labor Statistics (CPI-U), IMF/World Bank (Sri Lanka CCPI)</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass rounded-xl p-6">
+                        <h4 class="text-lg font-bold mb-4 text-green-300">Key Learnings</h4>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li>- Sourcing, validating, and structuring real-world economic datasets</li>
+                            <li>- Designing data visualisations that make 60+ years of data accessible to non-technical users</li>
+                            <li>- Setting up a CI/CD pipeline and continuous deployment workflow</li>
+                            <li>- Translating a personal, relatable problem into a structured full-stack solution</li>
                         </ul>
                     </div>
                 </div>
