@@ -1,3 +1,81 @@
+// Cursor-Reactive Animated Background
+(function initBackgroundCanvas() {
+    const canvas = document.getElementById('bg-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Mouse position (defaults to center of screen)
+    const mouse = { x: width / 2, y: height / 2 };
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+    window.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+        }
+    }, { passive: true });
+
+    // Glowing orbs, each with its own parallax depth and idle drift
+    const orbs = [
+        { baseX: 0.18, baseY: 0.25, radius: 380, color: 'rgba(118, 75, 162, 0.30)', depth: 0.06, driftSpeed: 0.00035, driftRadius: 60, angle: 0 },
+        { baseX: 0.82, baseY: 0.20, radius: 420, color: 'rgba(59, 130, 246, 0.24)', depth: 0.05, driftSpeed: 0.00028, driftRadius: 70, angle: 2 },
+        { baseX: 0.75, baseY: 0.75, radius: 340, color: 'rgba(147, 51, 234, 0.22)', depth: 0.08, driftSpeed: 0.0004, driftRadius: 50, angle: 4 },
+        { baseX: 0.20, baseY: 0.80, radius: 300, color: 'rgba(99, 102, 241, 0.22)', depth: 0.07, driftSpeed: 0.00032, driftRadius: 55, angle: 1 },
+        { baseX: 0.50, baseY: 0.50, radius: 260, color: 'rgba(139, 92, 246, 0.18)', depth: 0.1, driftSpeed: 0.00045, driftRadius: 40, angle: 3 }
+    ];
+
+    orbs.forEach(orb => { orb.x = orb.baseX * width; orb.y = orb.baseY * height; });
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const mouseOffsetX = mouse.x - centerX;
+        const mouseOffsetY = mouse.y - centerY;
+
+        orbs.forEach(orb => {
+            orb.angle += orb.driftSpeed * 16;
+            const driftX = Math.cos(orb.angle) * orb.driftRadius;
+            const driftY = Math.sin(orb.angle) * orb.driftRadius;
+
+            const targetX = orb.baseX * width + mouseOffsetX * orb.depth + driftX;
+            const targetY = orb.baseY * height + mouseOffsetY * orb.depth + driftY;
+
+            // Smooth easing toward target position
+            orb.x += (targetX - orb.x) * 0.04;
+            orb.y += (targetY - orb.y) * 0.04;
+
+            const gradient = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.radius);
+            gradient.addColorStop(0, orb.color);
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(orb.x - orb.radius, orb.y - orb.radius, orb.radius * 2, orb.radius * 2);
+        });
+
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+})();
+
 // Initialize Lucide Icons
 lucide.createIcons();
 
@@ -37,7 +115,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            
+
             // Animate skill bars if this is the skills section
             const skillBars = entry.target.querySelectorAll('.skill-bar');
             skillBars.forEach(bar => {
@@ -46,11 +124,14 @@ const observer = new IntersectionObserver((entries) => {
                     bar.style.width = width;
                 }, 200);
             });
+
+            // Reveal once, then stop watching for performance
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.fade-in').forEach(el => {
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale').forEach(el => {
     observer.observe(el);
 });
 
@@ -62,31 +143,6 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
         icon.setAttribute('data-lucide', 'menu');
         lucide.createIcons();
     });
-});
-
-// Contact Form Handling
-const contactForm = document.getElementById('contact-form');
-const toast = document.getElementById('toast');
-const toastMessage = document.getElementById('toast-message');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Simulate form submission
-    const formData = new FormData(contactForm);
-    console.log('Form submitted:', Object.fromEntries(formData));
-    
-    // Show success toast
-    toastMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-    toast.classList.remove('translate-y-24', 'opacity-0');
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Hide toast after 3 seconds
-    setTimeout(() => {
-        toast.classList.add('translate-y-24', 'opacity-0');
-    }, 3000);
 });
 
 // Smooth scroll for anchor links
@@ -101,16 +157,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-});
-
-// Add parallax effect to hero background
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.absolute.inset-0.overflow-hidden');
-    if (parallax) {
-        const speed = scrolled * 0.5;
-        parallax.style.transform = `translateY(${speed}px)`;
-    }
 });
 
 // Re-initialize icons after any dynamic content changes
