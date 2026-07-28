@@ -233,6 +233,7 @@ header:not(.scrolled) .nav-toggle{ border-color:var(--ink); color:var(--ink); mi
   font-family:var(--mono); font-size:.7rem; padding:.35rem .7rem; border:1px solid var(--line-invert);
   border-radius:999px; color:var(--invert-ink-soft);
 }
+.project .links{ display:flex; flex-wrap:wrap; gap:1.4rem; margin-bottom:1.3rem; }
 .project .links a{ font-family:var(--mono); font-size:.78rem; color:var(--invert-ink); border-bottom:1px solid var(--signal); padding-bottom:2px; }
 .project .links a:hover{ color:var(--signal); }
 .gallery{
@@ -440,9 +441,9 @@ footer{
         <div>
           <p>An AI-powered tool that diagnoses plant leaf diseases from a single photo — giving farmers a fast, free, first-line diagnosis without waiting for expert access. Classifies leaves into 38 categories across 14 crop species using transfer learning on MobileNetV2, trained on ~87,000 labeled images.</p>
           <div class="stack"><span>Python</span><span>TensorFlow / Keras</span><span>MobileNetV2</span><span>Streamlit</span><span>scikit-learn</span><span>Google Colab (GPU)</span></div>
-          <div class="links"><a href="https://github.com/AmmarFareed/LeafGuard.ai" target="_blank" rel="noopener">View on GitHub →</a></div>
+          <div class="links"><a href="https://leafguardairecognition.streamlit.app" target="_blank" rel="noopener">View live demo →</a><a href="https://github.com/AmmarFareed/LeafGuard.ai" target="_blank" rel="noopener">View on GitHub →</a></div>
           <div class="gallery">
-            <img src="assets/leafguard\site.png" alt="LeafGuard AI Streamlit app interface" loading="lazy">
+            <img src="assets/leafguard/site.png" alt="LeafGuard AI Streamlit app interface" loading="lazy">
             <img src="assets/leafguard/leaf2.png" alt="LeafGuard AI leaf disease prediction result" loading="lazy">
             <img src="assets/leafguard/leaf3.png" alt="LeafGuard AI leaf disease prediction result" loading="lazy">
           </div>
@@ -480,7 +481,7 @@ footer{
         <div>
           <p>An inflation calculator built after years of hearing relatives say "back in my day this used to cost so much less." It puts real numbers behind that — showing what an amount from any year is worth today, in USD or LKR, including Sri Lanka's 2022 economic crisis.</p>
           <div class="stack"><span>React</span><span>Vite</span><span>Recharts</span><span>Vercel</span><span>GitHub Actions</span><span>BLS CPI-U / IMF data</span></div>
-          <div class="links"><a href="https://priceshift-vice.vercel.app/" target="_blank" rel="noopener">View live demo →</a></div>
+          <div class="links"><a href="https://priceshift-vice.vercel.app/" target="_blank" rel="noopener">View live demo →</a><a href="https://github.com/AmmarFareed/priceshift" target="_blank" rel="noopener">View on GitHub →</a></div>
           <div class="gallery">
             <img src="https://ammarfareed.vercel.app/assets/priceshift/main-view.png" alt="PriceShift USD growth curve" loading="lazy">
             <img src="https://ammarfareed.vercel.app/assets/priceshift/growth-curve-lkr.png" alt="PriceShift LKR growth curve with 2022 crisis annotation" loading="lazy">
@@ -521,6 +522,7 @@ footer{
         <div>
           <p>A full pipeline to clean, transform, and analyse Airbnb's London listings — turning raw operational data into a statistically validated business report, across 32 boroughs.</p>
           <div class="stack"><span>Python</span><span>pandas</span><span>NumPy / SciPy</span><span>Jupyter</span><span>Mann-Whitney U / ANOVA</span></div>
+          <div class="links"><a href="https://github.com/AmmarFareed/airbnb-data-engineering-project" target="_blank" rel="noopener">View on GitHub →</a></div>
           <div class="gallery">
             <img src="https://ammarfareed.vercel.app/assets/airbnb-london/price-distribution.png" alt="Price distribution histogram" loading="lazy">
             <img src="https://ammarfareed.vercel.app/assets/airbnb-london/price-by-room-type.png" alt="Price by room type box plot" loading="lazy">
