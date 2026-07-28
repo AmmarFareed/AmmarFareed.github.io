@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ammar Fareed — Portfolio</title>
+<title>Mohamed Ammar — Portfolio</title>
 <meta name="description" content="Mohamed Ammar — Computer Science undergraduate. Software, data, and systems projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
   --invert-ink-soft:#a8a69d;
   --line: rgba(13,13,12,0.14);
   --line-invert: rgba(242,241,236,0.16);
-  --signal:#ec2036;
+  --signal:#ff5a1f;
   --signal-dim: rgba(255,90,31,0.35);
   --display: 'Space Grotesk', sans-serif;
   --body: 'Inter', sans-serif;
@@ -429,11 +429,51 @@ footer{
   <section id="projects" class="section section-dark" data-theme="dark">
     <div class="wrap">
       <div class="eyebrow">Projects</div>
-      <h2 class="reveal">Featured work<span class="sub">// four builds, from a live deployed app to an academic group system</span></h2>
+      <h2 class="reveal">Featured work<span class="sub">// five builds, from a trained ML model to a live deployed app</span></h2>
 
       <div class="project reveal">
         <div>
-          <div class="project-idx">01 / Personal Project — Jun 2026 – Present</div>
+          <div class="project-idx">01 / Final Certificate Project — AI Course</div>
+          <h3>LeafGuard AI 🌿</h3>
+          <div class="meta">Computer vision · crop disease detection</div>
+        </div>
+        <div>
+          <p>An AI-powered tool that diagnoses plant leaf diseases from a single photo — giving farmers a fast, free, first-line diagnosis without waiting for expert access. Classifies leaves into 38 categories across 14 crop species using transfer learning on MobileNetV2, trained on ~87,000 labeled images.</p>
+          <div class="stack"><span>Python</span><span>TensorFlow / Keras</span><span>MobileNetV2</span><span>Streamlit</span><span>scikit-learn</span><span>Google Colab (GPU)</span></div>
+          <div class="links"><a href="https://github.com/AmmarFareed/LeafGuard.ai" target="_blank" rel="noopener">View on GitHub →</a></div>
+          <div class="gallery">
+            <img src="assets/leafguard\site.png" alt="LeafGuard AI Streamlit app interface" loading="lazy">
+            <img src="assets/leafguard/leaf2.png" alt="LeafGuard AI leaf disease prediction result" loading="lazy">
+            <img src="assets/leafguard/leaf3.png" alt="LeafGuard AI leaf disease prediction result" loading="lazy">
+          </div>
+          <details class="more">
+            <summary>Details</summary>
+            <div class="more-grid">
+              <div>
+                <h5>Built</h5>
+                <ul>
+                  <li>Fine-tuned MobileNetV2 CNN, last 20 layers unfrozen for fine-tuning</li>
+                  <li>Classification head: Global Average Pooling → Dropout → Dense (38, softmax)</li>
+                  <li>Data augmentation (flip, rotation, zoom, brightness) plus early stopping</li>
+                  <li>Streamlit demo app returning a label, confidence score, and top-3 breakdown</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Learned</h5>
+                <ul>
+                  <li>Transfer learning and fine-tuning workflows on a pretrained CNN</li>
+                  <li>Structuring an end-to-end ML project for public presentation</li>
+                  <li>Evaluating a multi-class model and communicating its limitations honestly</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="project reveal">
+        <div>
+          <div class="project-idx">02 / Personal Project — Jun 2026 – Present</div>
           <h3>PriceShift ⚡</h3>
           <div class="meta">Live &amp; deployed</div>
         </div>
@@ -474,7 +514,7 @@ footer{
 
       <div class="project reveal">
         <div>
-          <div class="project-idx">02 / Independent Project — Jun 2026</div>
+          <div class="project-idx">03 / Independent Project — Jun 2026</div>
           <h3>Airbnb London Market Analysis</h3>
           <div class="meta">Data engineering &amp; analytics</div>
         </div>
@@ -514,7 +554,7 @@ footer{
 
       <div class="project reveal">
         <div>
-          <div class="project-idx">03 / SLIIT City UNI — Jul 2025 – Dec 2025</div>
+          <div class="project-idx">04 / SLIIT City UNI — Jul 2025 – Dec 2025</div>
           <h3>Level Up ⚡︎</h3>
           <div class="meta">Full-stack e-commerce</div>
         </div>
@@ -552,7 +592,7 @@ footer{
 
       <div class="project reveal">
         <div>
-          <div class="project-idx">04 / Group Project — Oct 2025 – Nov 2025</div>
+          <div class="project-idx">05 / Group Project — Oct 2025 – Nov 2025</div>
           <h3>DigitalID Nexus</h3>
           <div class="meta">National digital identity system</div>
         </div>
