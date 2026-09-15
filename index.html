@@ -3,6 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Ammar Portfolio">
+<meta property="og:title" content="Mohamed Ammar | Software, Cloud &amp; Data">
+<meta property="og:description" content="Explore my software, cloud, and data projects, experience, and education. Let's build something together.">
+<meta property="og:url" content="https://ammarfareed.github.io/">
+<meta property="og:image" content="https://ammarfareed.github.io/assets/social-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Mohamed Ammar — Software, Cloud &amp; Data portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mohamed Ammar | Software, Cloud &amp; Data">
+<meta name="twitter:description" content="Explore my software, cloud, and data projects, experience, and education.">
+<meta name="twitter:image" content="https://ammarfareed.github.io/assets/social-preview.png">
+<meta name="twitter:image:alt" content="Mohamed Ammar — Software, Cloud &amp; Data portfolio">
 <title>Mohamed Ammar — Portfolio</title>
 <meta name="description" content="Mohamed Ammar — Computer Science undergraduate. Software, data, and systems projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,7 +153,7 @@ header:not(.scrolled) .nav-toggle{ border-color:var(--ink); color:var(--ink); mi
 .loader-inner{ position:relative; text-align:center; width:min(420px, 84vw); }
 .loader-log{
   font-size:.78rem; letter-spacing:.03em; color:#a8a69d; text-align:left;
-  height:6.6em; overflow:hidden; margin-bottom:1.4rem;
+  min-height:10em; line-height:2; overflow-wrap:anywhere; margin-bottom:1.4rem;
 }
 .loader-log div{ opacity:.85; }
 .loader-log .ok{ color:var(--signal); }
@@ -217,6 +232,9 @@ header:not(.scrolled) .nav-toggle{ border-color:var(--ink); color:var(--ink); mi
   font-family:var(--mono); font-size:.82rem;
 }
 .cert-list li span.status{ color:var(--signal); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; }
+.cert-list a{ text-decoration:underline; text-underline-offset:.2em; }
+.cert-list a:hover{ color:var(--signal); }
+.cert-list a:focus-visible{ outline:2px solid var(--signal); outline-offset:4px; }
 
 /* ===== projects ===== */
 .project{
@@ -290,6 +308,18 @@ details.more li::before{ content:'—'; position:absolute; left:0; color:var(--i
   display:inline-block; border-bottom:1px solid var(--signal); padding-bottom:.2rem;
 }
 .big-link:hover{ color:var(--signal); }
+.big-link{ overflow-wrap:anywhere; max-width:100%; }
+.email-options{ display:flex; flex-wrap:wrap; gap:.65rem; margin-top:1.25rem; }
+.email-options a, .email-options button{
+  display:inline-flex; align-items:center; justify-content:center; min-height:44px;
+  padding:.6rem .9rem; border:1px solid var(--line-invert); background:transparent;
+  color:var(--invert-ink); font-family:var(--mono); font-size:.75rem;
+}
+.email-options a:hover, .email-options button:hover{ border-color:var(--signal); }
+.email-options a{ width:44px; height:44px; padding:10px; }
+.email-options a svg{ display:block; width:24px; height:24px; flex-shrink:0; }
+.email-options :focus-visible{ outline:2px solid var(--signal); outline-offset:4px; }
+.email-status{ min-height:1.5em; margin-top:.6rem; font-size:.8rem; color:var(--invert-ink-soft); }
 footer{
   padding:1.6rem clamp(1.25rem,6vw,5rem); display:flex; justify-content:space-between; flex-wrap:wrap; gap:.6rem;
   font-family:var(--mono); font-size:.7rem; color:var(--invert-ink-soft);
@@ -385,7 +415,7 @@ footer{
       <div class="stat-grid reveal">
         <div class="stat"><div class="num" data-count="10"><span class="accent">0</span></div><div class="label">Top Skills</div></div>
         <div class="stat"><div class="num" data-count="3"><span class="accent">0</span></div><div class="label">Languages Spoken</div></div>
-        <div class="stat"><div class="num" data-count="4"><span class="accent">0</span></div><div class="label">Certifications</div></div>
+        <div class="stat"><div class="num" data-count="7"><span class="accent">0</span></div><div class="label">Certifications</div></div>
         <div class="stat"><div class="num">2024</div><div class="label">Started Higher Diploma</div></div>
       </div>
     </div>
@@ -410,6 +440,9 @@ footer{
             <li>Python for Beginners — Univ. of Moratuwa <span class="status">Completed</span></li>
             <li>Introduction to Git <span class="status">Completed</span></li>
             <li>McKinsey Forward Program <span class="status">Completed</span></li>
+            <li><a href="https://verify.skilljar.com/c/i2o7j9g4scpb" target="_blank" rel="noopener">AI Fluency for Students — Anthropic</a> <span class="status">Completed</span></li>
+            <li><a href="https://verify.skilljar.com/c/eyxfj27ecewz" target="_blank" rel="noopener">Claude 101 — Anthropic</a> <span class="status">Completed</span></li>
+            <li><a href="https://verify.skilljar.com/c/35k5bdx4e3u6" target="_blank" rel="noopener">Claude Code 101 — Anthropic</a> <span class="status">Completed</span></li>
           </ul>
         </div>
         <div class="reveal">
@@ -691,6 +724,29 @@ footer{
         <div class="eyebrow">Contact</div>
         <h2>Let's talk<span class="sub">// based in Dehiwala, Western Province, Sri Lanka</span></h2>
         <a class="big-link" href="mailto:hfm.ammar06@gmail.com">hfm.ammar06@gmail.com</a>
+        <div class="email-options" role="group" aria-label="Email options">
+          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hfm.ammar06%40gmail.com" target="_blank" rel="noopener" aria-label="Open Gmail" title="Open Gmail">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="#4285f4" d="M2 5h3v15H2a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/>
+              <path fill="#34a853" d="M19 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3Z"/>
+              <path fill="#ea4335" d="m5 5 7 5.25L19 5v5l-7 5.25L5 10Z"/>
+              <path fill="#c5221f" d="M0 7V5.5a2 2 0 0 1 3.2-1.6L5 5.25v5Z"/>
+              <path fill="#fbbc04" d="m19 5.25 1.8-1.35A2 2 0 0 1 24 5.5V7l-5 3.25Z"/>
+            </svg>
+          </a>
+          <a href="https://outlook.live.com/mail/0/deeplink/compose?to=hfm.ammar06%40gmail.com" target="_blank" rel="noopener" aria-label="Open Outlook" title="Open Outlook">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <rect x="8" y="2" width="13" height="17" rx="1.5" fill="#0078d4"/>
+              <path fill="#28a8ea" d="M10 5h4v4h-4Zm5 0h4v4h-4ZM10 10h4v4h-4Zm5 0h4v4h-4Z"/>
+              <path fill="#1490df" d="m7 11 8 5 9-5v10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1Z"/>
+              <path fill="#28a8ea" d="m7 22 8-6 9 6Z"/>
+              <rect x="0" y="6" width="13" height="14" rx="1.5" fill="#0364b8"/>
+              <ellipse cx="6.5" cy="13" rx="3" ry="4" fill="none" stroke="#fff" stroke-width="1.7"/>
+            </svg>
+          </a>
+          <button type="button" id="copy-email">Copy email</button>
+        </div>
+        <p class="email-status" id="email-status" role="status" aria-live="polite"></p>
       </div>
       <div class="contact-list reveal">
         <div class="row"><span class="k">Location</span><span class="v">Dehiwala, Sri Lanka</span></div>
@@ -712,6 +768,16 @@ footer{
 (function(){
   "use strict";
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.getElementById('copy-email').addEventListener('click', async function(){
+    var status = document.getElementById('email-status');
+    try{
+      await navigator.clipboard.writeText('hfm.ammar06@gmail.com');
+      status.textContent = 'Email address copied!';
+    }catch(error){
+      status.textContent = 'Select and copy the email address above.';
+    }
+  });
 
   /* ---------- Loader ---------- */
   var loader = document.getElementById('loader');
